@@ -1,0 +1,14 @@
+A deterministic finite automaton (DFA) is a finite State machine that accepts/rejects finite strings of symbols and only produces a unique computation (or run) of the automaton for each input string.
+
+A deterministic finite automaton M is a 5-tuple, (Q, Σ, δ, q0, F), consisting of
+– a finite set of states (Q)
+– a finite set of input symbols called the alphabet (Σ)
+– a transition function (δ : Q × Σ → Q)
+– a start State (q0 ∈ Q)
+– a set of accept states (F ⊆ Q)
+
+Let w = a1a2 … an be a string over the alphabet Σ. The automaton M accepts the string w if a sequence of states, r0,r1, …, rn, exists in Q with the following conditions:
+– r0 = q0
+– ri+1 = δ(ri, ai+1), for i = 0, …, n−1
+– rn ∈ F.
+(wikipedia)
