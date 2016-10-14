@@ -29,20 +29,18 @@ public class DFA<T> {
         }
     }
 
-    public State calculateFinalState(State State, Queue<T> symbol)
-            throws IllegalStateException, IllegalArgumentException {
+    public State calculateFinalState(State State, Queue<T> symbol) throws IllegalStateException, IllegalArgumentException {
         if(symbol.isEmpty() && State.isFinalState()){
             return State;
         }
-//        if(!alphabet.contains(symbol.peek())){
-//            throw new IllegalArgumentException();
-//        }
+        if(!alphabet.contains(symbol.peek())){
+            throw new IllegalArgumentException("Plz provide a valid alphabet");
+        }
         Optional<State> nextState = getNextState(State, symbol.poll());
         if(nextState.isPresent()){
-            return
-                    calculateFinalState(nextState.get(), symbol);
+            return calculateFinalState(nextState.get(), symbol);
         }
-//        throw new IllegalStateException();
+        throw new IllegalStateException("I think the transition is provided for a state with doesn't exist");
     }
 
     private Optional<State> getNextState(State State, T alphabet){

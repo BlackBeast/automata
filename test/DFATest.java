@@ -52,88 +52,8 @@ public class DFATest {
         Assert.assertEquals(oddNumber,dfa.calculateFinalState(evenNumber, binaryList));
     }
 
-//    @Test
-//    public void AllStringsOtherThanTheStrings_11_And_111() throws Exception{
-//        DFA<Integer> dfa = new DFA<Integer>();
-//        dfa.addToAlphabet(0);
-//        dfa.addToAlphabet(1);
-//
-//        State q0 = new State();
-//        q0.setFinalState(false);
-//        dfa.addToStates(q0);
-//
-//        State q1 = new State();
-//        q1.setFinalState(true);
-//        dfa.addToStates(q1);
-//
-//        State q2 = new State();
-//        q2.setFinalState(false);
-//        dfa.addToStates(q2);
-//
-//        State q3 = new State();
-//        q3.setFinalState(false);
-//        dfa.addToStates(q3);
-//
-//        State q4 = new State();
-//        q4.setFinalState(true);
-//        dfa.addToStates(q4);
-//
-//        Transition<Integer> t1 =
-//                new Transition<Integer>(q0, 0, q1);
-//        dfa.addTransition(t1);
-//
-//        Transition<Integer> t2 =
-//                new Transition<Integer>(q0, 1, q1);
-//        dfa.addTransition(t2);
-//
-//        Transition<Integer> t3 =
-//                new Transition<Integer>(q1, 1, q2);
-//        dfa.addTransition(t3);
-//
-//        Transition<Integer> t4 =
-//                new Transition<Integer>(q1, 0, q4);
-//        dfa.addTransition(t4);
-//
-//        Transition<Integer> t5 =
-//                new Transition<Integer>(q2, 1, q3);
-//        dfa.addTransition(t5);
-//
-//        Transition<Integer> t6 =
-//                new Transition<Integer>(q2, 0, q4);
-//        dfa.addTransition(t6);
-//
-//        Transition<Integer> t7 =
-//                new Transition<Integer>(q3, 0, q4);
-//        dfa.addTransition(t7);
-//
-//        Transition<Integer> t8 =
-//                new Transition<Integer>(q3, 1, q4);
-//        dfa.addTransition(t8);
-//
-//        Transition<Integer> t9 =
-//                new Transition<Integer>(q4, 1, q4);
-//        dfa.addTransition(t9);
-//
-//        Transition<Integer> t10 =
-//                new Transition<Integer>(q4, 0, q4);
-//        dfa.addTransition(t10);
-//
-//        LinkedList<Integer> binaryList =
-//                new LinkedList<Integer>();
-//        binaryList.add(1);
-////        binaryList.add(0);
-//        binaryList.add(1);
-//        binaryList.add(1);
-////        binaryList.add(0);
-//
-//        Assert.assertEquals(q4,dfa.calculateFinalState(q4, binaryList));
-//
-////        binaryList.add(0);
-////        Assert.assertEquals(oddNumber,dfa.calculateFinalState(evenNumber, binaryList));
-//    }
-
     @Test
-    public void AllStringsWhoseDecimalRepresentationIsAPowerOfTwo() throws Exception{
+    public void AllStringsOtherThanTheStrings_11_And_111() throws Exception{
         DFA<Integer> dfa = new DFA<Integer>();
         dfa.addToAlphabet(0);
         dfa.addToAlphabet(1);
@@ -150,8 +70,16 @@ public class DFATest {
         q2.setFinalState(false);
         dfa.addToStates(q2);
 
+        State q3 = new State();
+        q3.setFinalState(false);
+        dfa.addToStates(q3);
+
+        State q4 = new State();
+        q4.setFinalState(true);
+        dfa.addToStates(q4);
+
         Transition<Integer> t1 =
-                new Transition<Integer>(q0, 0, q2);
+                new Transition<Integer>(q0, 0, q1);
         dfa.addTransition(t1);
 
         Transition<Integer> t2 =
@@ -159,33 +87,100 @@ public class DFATest {
         dfa.addTransition(t2);
 
         Transition<Integer> t3 =
-                new Transition<Integer>(q1, 0, q1);
+                new Transition<Integer>(q1, 1, q2);
         dfa.addTransition(t3);
 
         Transition<Integer> t4 =
-                new Transition<Integer>(q1, 1, q2);
+                new Transition<Integer>(q1, 0, q4);
         dfa.addTransition(t4);
 
         Transition<Integer> t5 =
-                new Transition<Integer>(q2, 0, q2);
+                new Transition<Integer>(q2, 1, q3);
         dfa.addTransition(t5);
 
         Transition<Integer> t6 =
-                new Transition<Integer>(q2, 1, q2);
+                new Transition<Integer>(q2, 0, q4);
         dfa.addTransition(t6);
+
+        Transition<Integer> t7 =
+                new Transition<Integer>(q3, 0, q4);
+        dfa.addTransition(t7);
+
+        Transition<Integer> t8 =
+                new Transition<Integer>(q3, 1, q4);
+        dfa.addTransition(t8);
+
+        Transition<Integer> t9 =
+                new Transition<Integer>(q4, 1, q4);
+        dfa.addTransition(t9);
+
+        Transition<Integer> t10 =
+                new Transition<Integer>(q4, 0, q4);
+        dfa.addTransition(t10);
 
         LinkedList<Integer> binaryList =
                 new LinkedList<Integer>();
         binaryList.add(1);
-//        binaryList.add(0);
-//        binaryList.add(1);
-//        binaryList.add(1);
+        binaryList.add(0);
+        binaryList.add(1);
+        binaryList.add(1);
 //        binaryList.add(0);
 
-        Assert.assertEquals(q1,dfa.calculateFinalState(q1, binaryList));
+        Assert.assertEquals(q4,dfa.calculateFinalState(q0, binaryList));
 
-//        binaryList.add(0);
-//        Assert.assertEquals(oddNumber,dfa.calculateFinalState(evenNumber, binaryList));
+        binaryList.add(0);
+        Assert.assertEquals(q1,dfa.calculateFinalState(q0, binaryList));
+    }
+
+    @Test
+    public void AllStringsWhoseDecimalRepresentationIsAPowerOfTwo() throws Exception{
+        DFA<Integer> dfa = new DFA<Integer>();
+
+        dfa.addToAlphabet(1);
+
+        dfa.addToAlphabet(0);
+
+        State initialState = new State();
+        initialState.setFinalState(false);
+        dfa.addToStates(initialState);
+
+        State finalState = new State();
+        finalState.setFinalState(true);
+        dfa.addToStates(finalState);
+
+        State deadState = new State();
+        deadState.setFinalState(false);
+        dfa.addToStates(deadState);
+
+        Transition<Integer> t1 = new Transition<Integer>(initialState, 1, finalState);
+        dfa.addTransition(t1);
+
+        Transition<Integer> t2 = new Transition<Integer>(initialState, 0, deadState);
+        dfa.addTransition(t2);
+
+        Transition<Integer> t3 = new Transition<Integer>(finalState, 0, finalState);
+        dfa.addTransition(t3);
+
+        Transition<Integer> t4 = new Transition<Integer>(finalState, 1, deadState);
+        dfa.addTransition(t4);
+
+        Transition<Integer> t5 = new Transition<Integer>(deadState, 0, deadState);
+        dfa.addTransition(t5);
+
+        Transition<Integer> t6 = new Transition<Integer>(deadState, 1, deadState);
+        dfa.addTransition(t6);
+
+        LinkedList<Integer> alphabetList = new LinkedList<Integer>();
+        alphabetList.add(1);
+        alphabetList.add(0);
+        alphabetList.add(0);
+//        alphabetList.add(1);
+
+        Assert.assertEquals(finalState,dfa.calculateFinalState(initialState, alphabetList));
+
+        alphabetList.add(1);
+        Assert.assertEquals(finalState,dfa.calculateFinalState(initialState, alphabetList));
+
     }
 
 }
